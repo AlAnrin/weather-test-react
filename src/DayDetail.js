@@ -27,8 +27,11 @@ class DayDetail extends Component {
                             <span className="rowTimeDayVal">{item.dt_txt.split(' ')[1].slice(0, 5)}</span>
                             <div className="spacer"/>
                             <span className="rowTimeDayVal">{Math.round(item.main.temp)}&#8451;</span>
-                            <div className="spacer"/>
                             <img alt={item.weather.map(w => w.main)} src={this.props.iconUrl + item.weather.map(w => w.icon)+'.png'}/>
+                            <div className="spacer"/>
+                            <div className="rowTimeDayVal">{item.main.humidity}%</div>
+                            <div className="spacer"/>
+                            <div className="rowTimeDayVal">{Math.round(item.main.grnd_level * 7.5006) / 10} мм рт.ст.</div>
                             <div className="spacer"/>
                             <div className="rowTimeDayVal">Ветер {Math.round(item.wind.speed)}м/с ({this.degWind[Math.round(item.wind.deg/45)]})</div>
                         </div>
