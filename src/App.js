@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FiveDays from "./FiveDays";
+import DayDetail from "./DayDetail";
+import { connect } from 'react-redux';
+import {setWeather} from "./weatherActions";
 
+const mapStateToProps = store => {
+    return {
+        weatherData: store.data,
+        token: store.token,
+        baseUrl: store.baseUrl,
+        idCity: store.idCity
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setWeatherAction: weather => dispatch(setWeather(weather))
+    }
+};
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+
+        this.getWeather();
+    }
+
+    getWeather = async () => {
+        const api_call = await fetch(`${this.props.baseUrl}?id=${this.props.idCity}&units=metric&appid=${this.props.token}`);
+
+        const response = await api_call.json();
+
+        this.props.setWeatherAction(response);
+    };
+
+    render() {
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <FiveDays/>
+                    <DayDetail/>
+                </header>
+            </div>
+        );
+    }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

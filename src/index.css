@@ -12,3 +12,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+img {
+  width: 78px;
+  height: 78px;
+}
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.rowDays {
+  display: flex;
+  flex-direction: row;
+}
+.cardDay {
+  background: #c4dff5;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  border: 1px solid black;
+}
+.data_temp {
+  display: flex;
+  flex-direction: column;
+}
