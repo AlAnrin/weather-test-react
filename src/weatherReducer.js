@@ -1,4 +1,4 @@
-import {SET_TOKEN, SET_WEATHER} from './weatherActions';
+import {SET_TOKEN, SET_WEATHER, SET_CURR_DATE} from './weatherActions';
 
 const initialState = {
     weatherData: [],
@@ -6,7 +6,8 @@ const initialState = {
     token: '3bebdda89631980556d5ee2faeee2cce',
     baseUrl: 'http://api.openweathermap.org/data/2.5/forecast',
     idCity: '498817',
-    iconUrl: 'http://openweathermap.org/img/w/'
+    iconUrl: 'http://openweathermap.org/img/w/',
+    currDate: ''
 };
 
 export function weatherReducer(state = initialState, action) {
@@ -19,7 +20,7 @@ export function weatherReducer(state = initialState, action) {
         case SET_WEATHER:
             let list = [];
             action.payload.list.forEach(item => {
-                if (item.dt_txt.split(' ')[1].split(':')[0] === '12')
+                if (+item.dt_txt.split(' ')[1].split(':')[0] >= 12 && !list.find(x => x.dt_txt.split(' ')[0] === item.dt_txt.split(' ')[0]))
                     list.push(item);
             });
             return {
@@ -30,6 +31,11 @@ export function weatherReducer(state = initialState, action) {
                         ...action.payload,
                         list: list
                     })
+            };
+        case SET_CURR_DATE:
+            return {
+                ...state,
+                currDate: action.payload
             };
         default:
             return state;
