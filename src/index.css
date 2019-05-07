@@ -1,65 +1,68 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 img {
-  width: 78px;
-  height: 78px;
+    width: 78px;
+    height: 78px;
 }
 a {
-  text-decoration: none;
-  cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
 }
 a:active {
     background: #94aaba !important;
 }
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 .rowDays {
-  display: flex;
-  flex-direction: row;
-}
-.cardDay {
-  background: #c4dff5;
-  display: flex;
-  flex-direction: row;
-  color: black;
-  border: 1px solid black;
-}
-.activeCardDay {
-    background: #94aaba;
     display: flex;
     flex-direction: row;
-    color: black;
-    border: 1px solid black;
+}
+.cardDay {
+    background: #369dcf;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    border-right: 1px solid #125680;
+    border-left: 1px solid #125680;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.activeCardDay {
+    background: #0b6dae;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    border: 1px solid #124466;
 }
 .cardDay:hover {
-  background: #a2b9cb;
+    background: #2c86cb;
 }
 .data_temp {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .rowTimeDay {
     background: #ffffff;
@@ -69,7 +72,7 @@ a:active {
     color: black;
 }
 .rowTimeDay:nth-of-type(odd) {
-    background-color: #ebebeb;
+    background-color: #a8d8f5;
 }
 .rowTimeDayVal {
     margin: auto;

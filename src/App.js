@@ -63,7 +63,6 @@ class App extends Component {
                                     )
                                 }
                             </div>
-                            <hr/>
                             <Route path="/:id" component={DayDetail}/>
                         </div>
                     </Router>
