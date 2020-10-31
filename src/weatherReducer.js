@@ -1,13 +1,45 @@
-import {SET_TOKEN, SET_WEATHER, SET_CURR_DATE} from './weatherActions';
+import {SET_TOKEN, SET_WEATHER, SET_CURR_DATE, SET_CITY} from './weatherActions';
+
+const Cities = [
+    {
+        code: '2643741',
+        name: 'Лондон'
+    },
+    {
+        code: '498817',
+        name: 'Санкт-Петербург'
+    },
+    {
+        code: '524894',
+        name: 'Москва'
+    },
+    {
+        code: '2968815',
+        name: 'Париж'
+    },
+    {
+        code: '292223',
+        name: 'Дубаи'
+    },
+    {
+        code: '491422',
+        name: 'Сочи'
+    },
+    {
+        code: '2673722',
+        name: 'Стокгольм'
+    }
+]
 
 const initialState = {
     weatherData: [],
     weatherDaysData: [],
     token: '3bebdda89631980556d5ee2faeee2cce',
     baseUrl: 'http://api.openweathermap.org/data/2.5/forecast',
-    idCity: '498817',
+    idCity: null,
     iconUrl: 'http://openweathermap.org/img/w/',
-    currDate: ''
+    currDate: '',
+    Cities: Cities
 };
 
 export function weatherReducer(state = initialState, action) {
@@ -16,6 +48,11 @@ export function weatherReducer(state = initialState, action) {
             return {
                 ...state,
                 token: action.payload
+            };
+        case SET_CITY:
+            return {
+                ...state,
+                idCity: action.payload
             };
         case SET_WEATHER:
             let list = [];

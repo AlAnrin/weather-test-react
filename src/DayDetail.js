@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = store => {
     return {
+        currDate: store.currDate,
         weatherData: store.weatherData,
         iconUrl: store.iconUrl,
     };
@@ -22,6 +23,7 @@ class DayDetail extends Component {
         return (
             <div>
                 {
+                    this.props.currDate !== '' &&
                     list.map(item =>
                         <div key={item.dt} className="rowTimeDay">
                             <span className="rowTimeDayVal">{item.dt_txt.split(' ')[1].slice(0, 5)}</span>
