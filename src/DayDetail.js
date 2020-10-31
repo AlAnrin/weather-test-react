@@ -12,13 +12,25 @@ const mapStateToProps = store => {
 class DayDetail extends Component {
     degWind = ['с', 'с-в', 'в', 'ю-в', 'ю', 'ю-з', 'з', 'с-з', 'с'];
 
+    compareTxtData(curData, data) {
+        const arrCur = curData.split('-');
+        const arr = data.split('-');
+        if (arrCur.length !== arr.length)
+            return false;
+        for (let i = 0; i < arr.length; i++) {
+            if (arrCur[i] !== arr[i])
+                return false;
+        }
+        return true;
+    }
+
     render() {
         console.log(this.props);
         let list = [];
         if (this.props.currDate !== "") {
             if (this.props.weatherData && this.props.weatherData.list)
                 this.props.weatherData.list.forEach(item => {
-                    if (item.dt_txt.split(' ')[0] === this.props.match.params.id)
+                    if (this.compareTxtData(item.dt_txt.split(' ')[0], this.props.currDate))
                         list.push(item);
                 });
         }
