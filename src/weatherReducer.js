@@ -35,9 +35,9 @@ const initialState = {
     weatherData: [],
     weatherDaysData: [],
     token: '3bebdda89631980556d5ee2faeee2cce',
-    baseUrl: 'http://api.openweathermap.org/data/2.5/forecast',
+    baseUrl: 'https://api.openweathermap.org/data/2.5/forecast',
     idCity: null,
-    iconUrl: 'http://openweathermap.org/img/w/',
+    iconUrl: 'https://openweathermap.org/img/w/',
     currDate: '',
     Cities: Cities
 };
