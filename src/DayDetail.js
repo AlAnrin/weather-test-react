@@ -15,15 +15,16 @@ class DayDetail extends Component {
     render() {
         console.log(this.props);
         let list = [];
-        if (this.props.weatherData && this.props.weatherData.list)
-            this.props.weatherData.list.forEach(item => {
-                if (item.dt_txt.split(' ')[0] === this.props.match.params.id)
-                    list.push(item);
-            });
+        if (this.props.currDate !== "") {
+            if (this.props.weatherData && this.props.weatherData.list)
+                this.props.weatherData.list.forEach(item => {
+                    if (item.dt_txt.split(' ')[0] === this.props.match.params.id)
+                        list.push(item);
+                });
+        }
         return (
             <div>
                 {
-                    this.props.currDate !== '' &&
                     list.map(item =>
                         <div key={item.dt} className="rowTimeDay">
                             <span className="rowTimeDayVal">{item.dt_txt.split(' ')[1].slice(0, 5)}</span>

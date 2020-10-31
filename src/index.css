@@ -146,6 +146,7 @@ input, button {
     color: #060b1a;
     border-right: 1px solid #125680;
     border-bottom: 1px solid #125680;
+    height: 100%;
 }
 .activeCardDay:hover {
     background: #a8a8a8;
